@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public int maxEnemies = 5; // Maximum number of enemies to have simultaneously
     public float spawnInterval = 3f;
     public float spawnDistance = 10f;
 
@@ -14,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        SpawnInitialEnemies();
     }
 
     void Update()
@@ -27,9 +29,27 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    void SpawnInitialEnemies()
+    {
+        for (int i = 0; i < maxEnemies; i++)
+        {
+            SpawnEnemy();
+        }
+    }
+
     void SpawnEnemy()
     {
-        Vector3 spawnPosition = playerTransform.position + playerTransform.forward * spawnDistance;
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length < maxEnemies)
+        {
+            Vector3 spawnPosition = playerTransform.position + playerTransform.forward * spawnDistance;
+            GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            newEnemy.GetComponent<EnemyHealth>().OnEnemyDestroyed.AddListener(OnEnemyDestroyed);
+        }
+    }
+
+    void OnEnemyDestroyed()
+    {
+        // Called when an enemy is destroyed
+        SpawnEnemy();
     }
 }
