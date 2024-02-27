@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class party1Randomiser : MonoBehaviour
 {
+    public GameObject partyMember1; 
 
     public float basicAttackChance = 0;
     public float healChance = 0;
@@ -31,6 +32,7 @@ public class party1Randomiser : MonoBehaviour
             if (basicAttackChance >= 10 )
             {
                 print("Basic Attack");
+                partyMember1.GetComponent<PlayerController>().PerformBasicAttack(); 
             } else if (healChance >= 10) {
                 print("Heal"); 
             } else

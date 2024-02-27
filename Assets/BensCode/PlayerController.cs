@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PerformBasicAttack()
+    public void PerformBasicAttack()
     {
         int enemyHealth = 100; // Example enemy health
         enemyHealth -= damagePerBasicAttack;
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Performed Basic Attack! Enemy health: " + enemyHealth);
     }
 
-    void PerformHeal()
+    public void PerformHeal()
     {
         if (currentMana >= manaCostForHeal)
         {
