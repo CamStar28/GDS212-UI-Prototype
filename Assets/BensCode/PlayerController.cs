@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PerformBasicAttack()
+    public void PerformBasicAttack()
     {
         if (currentMana >= manaCostForHeal)
         {
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PerformHeal()
+    public void PerformHeal()
     {
         if (currentMana >= manaCostForHeal)
         {
