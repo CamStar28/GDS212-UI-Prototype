@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int maxMana = 40;
     public int damagePerBasicAttack = 6;
     public int healingAmount = 20;
     public int manaCostForHeal = 10;
@@ -16,18 +15,18 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        currentMana = maxMana;
+        currentMana = 40; // Assuming player starts with 30 mana
     }
 
     void Update()
     {
-        // Check for user input (left mouse button for basic attack just to make it easy for players can change to a button on the UI in a bit)
+        // Check for user input (left mouse button for basic attack)
         if (Input.GetMouseButtonDown(0))
         {
             PerformBasicAttack();
         }
 
-        // Check for user input ('H' for healing same as attack)
+        // Check for user input ('H' for healing)
         if (Input.GetKeyDown(KeyCode.H))
         {
             PerformHeal();
@@ -36,21 +35,10 @@ public class PlayerController : MonoBehaviour
 
     void PerformBasicAttack()
     {
-        if (currentMana >= manaCostForHeal)
-        {
-            // Deduct mana for the basic attack
-            currentMana -= manaCostForHeal;
+        int enemyHealth = 100; // Example enemy health
+        enemyHealth -= damagePerBasicAttack;
 
-
-            int enemyHealth = 100; // Example enemy health
-            enemyHealth -= damagePerBasicAttack;
-
-            Debug.Log("Performed Basic Attack! Enemy health: " + enemyHealth);
-        }
-        else
-        {
-            Debug.Log("Not enough mana to perform Basic Attack!");
-        }
+        Debug.Log("Performed Basic Attack! Enemy health: " + enemyHealth);
     }
 
     void PerformHeal()
