@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public int healingAmount = 20;
     public int manaCostForHeal = 10;
     public Slider playerHealthSlider; // Reference to the player health slider UI
+    public Slider playerManaSlider; // Reference to the player mana slider UI
 
     public int currentHealth;
     public int currentMana;
@@ -34,6 +35,9 @@ public class PlayerController : MonoBehaviour
         {
             PerformHeal();
         }
+
+        UpdateHealthSlider(); 
+        UpdateManaSlider();
     }
 
     public void PerformBasicAttack()
@@ -43,7 +47,6 @@ public class PlayerController : MonoBehaviour
         enemyHealth -= damagePerBasicAttack;
 
         Debug.Log("Performed Basic Attack! Enemy health: " + enemyHealth);
-        UpdateHealthSlider();
     }
 
     public void PerformHeal()
@@ -60,7 +63,7 @@ public class PlayerController : MonoBehaviour
             currentHealth = Mathf.Min(currentHealth, maxHealth);
 
             Debug.Log("Performed Healing! Current health: " + currentHealth);
-            UpdateHealthSlider();
+            //UpdateHealthSlider(); Commenting this out for now since the function is in Update, might change later idk
         }
         else
         {
@@ -72,5 +75,11 @@ public class PlayerController : MonoBehaviour
     {
         // Update the player health slider value
         playerHealthSlider.value = (float)currentHealth / maxHealth;
+    }
+
+    void UpdateManaSlider()
+    {
+        // Update the player health slider value
+        playerManaSlider.value = (float)currentMana / 60;
     }
 }
