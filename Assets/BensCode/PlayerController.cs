@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PerformBasicAttack()
+    public void PerformBasicAttack()
     {
         // Deal damage to an enemy (For example, reduce enemy's health)
         int enemyHealth = 100; // Example enemy health
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         UpdateHealthSlider();
     }
 
-    void PerformHeal()
+    public void PerformHeal()
     {
         if (currentMana >= manaCostForHeal)
         {
