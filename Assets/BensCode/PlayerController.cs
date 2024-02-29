@@ -1,21 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int damagePerBasicAttack = 6;
+    public int damagePerBasicAttack = 10;
     public int healingAmount = 20;
     public int manaCostForHeal = 10;
+    public Slider playerHealthSlider; // Reference to the player health slider UI
 
-    private int currentHealth;
-    private int currentMana;
+    public int currentHealth;
+    public int currentMana;
 
     void Start()
     {
         currentHealth = maxHealth;
-        currentMana = 40; // Assuming player starts with 30 mana
+        currentMana = 60; // Assuming player starts with 60 mana
+        UpdateHealthSlider();
     }
 
     void Update()
@@ -33,15 +36,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void PerformBasicAttack()
+    void PerformBasicAttack()
     {
+        // Deal damage to an enemy (For example, reduce enemy's health)
         int enemyHealth = 100; // Example enemy health
         enemyHealth -= damagePerBasicAttack;
 
         Debug.Log("Performed Basic Attack! Enemy health: " + enemyHealth);
+        UpdateHealthSlider();
     }
 
-    public void PerformHeal()
+    void PerformHeal()
     {
         if (currentMana >= manaCostForHeal)
         {
@@ -55,10 +60,17 @@ public class PlayerController : MonoBehaviour
             currentHealth = Mathf.Min(currentHealth, maxHealth);
 
             Debug.Log("Performed Healing! Current health: " + currentHealth);
+            UpdateHealthSlider();
         }
         else
         {
             Debug.Log("Not enough mana to perform Healing!");
         }
+    }
+
+    void UpdateHealthSlider()
+    {
+        // Update the player health slider value
+        playerHealthSlider.value = (float)currentHealth / maxHealth;
     }
 }
