@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class EnemyAi : MonoBehaviour
 {
-    public int maxHealth = 50;
+    public int maxHealth = 100;
     public int healingAmount = 20;
-    public int halfHealthThreshold = 25; // Half of max health
+    public int halfHealthThreshold = 50; // Half of max health
     public Slider enemyHealthSlider; // Reference to the enemy health slider UI
 
     private int currentHealth;
@@ -20,11 +20,10 @@ public class EnemyAi : MonoBehaviour
 
     void Update()
     {
-        // Simulate taking damage (for example, when attacked by the player)
-        // Replace this with your actual damage logic
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TakeDamage(10); // Simulating 10 damage for testing purposes
+            TakeDamage(10);
         }
 
         // Check if health is below the threshold for healing
