@@ -4,9 +4,9 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI; 
 
-public class party1Randomiser : MonoBehaviour
+public class actionRandomiser : MonoBehaviour
 {
-    public GameObject partyMember1; 
+    public GameObject partyMember; 
 
     public float basicAttackChance = 0;
     public float healChance = 0;
@@ -32,16 +32,16 @@ public class party1Randomiser : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             basicAttackChance = Random.Range(1, 10) + (aggressionSlider.GetComponent<Slider>().value * 5);
-            //healChance = Random.Range(1, 10) + (cautionSlider.GetComponent<Slider>().value * 5 + ((partyMember1.GetComponent<PlayerController>().currentHealth - partyMember1.GetComponent<PlayerController>().maxHealth) / 100); 
+            //healChance = Random.Range(1, 10) + (cautionSlider.GetComponent<Slider>().value * 5 + ((partyMember.GetComponent<PlayerController>().currentHealth - partyMember.GetComponent<PlayerController>().maxHealth) / 100); 
             healChance = Random.Range(1, 10) + (cautionSlider.GetComponent<Slider>().value * 10);
 
             if (basicAttackChance >= 10 )
             {
                 print("Basic Attack");
-                partyMember1.GetComponent<PlayerController>().PerformBasicAttack(); 
+                partyMember.GetComponent<PlayerController>().PerformBasicAttack(); 
             } else if (healChance >= 10) {
                 print("Heal");
-                partyMember1.GetComponent<PlayerController>().PerformHeal(); 
+                partyMember.GetComponent<PlayerController>().PerformHeal(); 
             } else {
                 print("nothing I guess lmao"); 
             }
