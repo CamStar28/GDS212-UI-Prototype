@@ -1804,7 +1804,7 @@ MonoBehaviour:
       - m_Target: {fileID: 654051257}
         m_TargetAssemblyTypeName: actionRandomiser, Assembly-CSharp
         m_MethodName: AggressionUp
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1906,7 +1906,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2059432785}
         m_TargetAssemblyTypeName: actionRandomiser, Assembly-CSharp
         m_MethodName: CautionUp
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3546,7 +3546,7 @@ MonoBehaviour:
       - m_Target: {fileID: 654051257}
         m_TargetAssemblyTypeName: actionRandomiser, Assembly-CSharp
         m_MethodName: CautionUp
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3684,7 +3684,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1267220280}
         m_TargetAssemblyTypeName: actionRandomiser, Assembly-CSharp
         m_MethodName: AggressionUp
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3861,7 +3861,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1267220280}
         m_TargetAssemblyTypeName: actionRandomiser, Assembly-CSharp
         m_MethodName: CautionUp
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5892,7 +5892,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2059432785}
         m_TargetAssemblyTypeName: actionRandomiser, Assembly-CSharp
         m_MethodName: AggressionUp
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
