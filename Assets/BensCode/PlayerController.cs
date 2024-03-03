@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public int currentHealth;
     public int currentMana;
 
+    public GameObject Enemy; 
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Check for user input (left mouse button for basic attack)
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             PerformBasicAttack();
         }
@@ -43,10 +45,12 @@ public class PlayerController : MonoBehaviour
     public void PerformBasicAttack()
     {
         // Deal damage to an enemy (For example, reduce enemy's health)
-        int enemyHealth = 100; // Example enemy health
-        enemyHealth -= damagePerBasicAttack;
+        //int enemyHealth = 100; // Example enemy health
+        //enemyHealth -= damagePerBasicAttack;
 
-        Debug.Log("Performed Basic Attack! Enemy health: " + enemyHealth);
+        Enemy.GetComponent<EnemyAi>().TakeDamage(damagePerBasicAttack); 
+
+        Debug.Log("Performed Basic Attack! Enemy health: " + Enemy.GetComponent<EnemyAi>().currentHealth);
     }
 
     public void PerformHeal()

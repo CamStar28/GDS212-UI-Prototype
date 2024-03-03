@@ -10,7 +10,7 @@ public class EnemyAi : MonoBehaviour
     public int halfHealthThreshold = 50; // Half of max health
     public Slider enemyHealthSlider; // Reference to the enemy health slider UI
 
-    private int currentHealth;
+    public int currentHealth;
 
     void Start()
     {
@@ -21,11 +21,6 @@ public class EnemyAi : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10);
-        }
-
         // Check if health is below the threshold for healing
         if (currentHealth <= halfHealthThreshold)
         {
@@ -33,7 +28,7 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         // Reduce enemy health when taking damage
         currentHealth -= damage;
