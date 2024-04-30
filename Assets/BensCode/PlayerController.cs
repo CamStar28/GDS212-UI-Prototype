@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,7 +17,9 @@ public class PlayerController : MonoBehaviour
     public int currentHealth;
     public int currentMana;
 
-    public GameObject Enemy; 
+    public GameObject Enemy;
+
+    public TextMeshProUGUI playerTextBox;
 
     void Start()
     {
@@ -50,7 +54,8 @@ public class PlayerController : MonoBehaviour
 
         Enemy.GetComponent<EnemyAi>().TakeDamage(damagePerBasicAttack); 
 
-        Debug.Log("Performed Basic Attack! Enemy health: " + Enemy.GetComponent<EnemyAi>().currentHealth);
+        //Debug.Log("Performed Basic Attack! Enemy health: " + Enemy.GetComponent<EnemyAi>().currentHealth);
+        playerTextBox.text = "Performed Basic Attack! Enemy health: " + Enemy.GetComponent<EnemyAi>().currentHealth; 
     }
 
     public void PerformHeal()
@@ -66,12 +71,15 @@ public class PlayerController : MonoBehaviour
             // Ensure health doesn't exceed the maximum health
             currentHealth = Mathf.Min(currentHealth, maxHealth);
 
-            Debug.Log("Performed Healing! Current health: " + currentHealth);
+            //Debug.Log("Performed Healing! Current health: " + currentHealth);
             //UpdateHealthSlider(); Commenting this out for now since the function is in Update, might change later idk
+
+            playerTextBox.text = "Performed Healing! Current health: " + currentHealth;
         }
         else
         {
-            Debug.Log("Not enough mana to perform Healing!");
+            //Debug.Log("Not enough mana to perform Healing!");
+            playerTextBox.text = ("Not enough mana to perform Healing!");
         }
     }
 

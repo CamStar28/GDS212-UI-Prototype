@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI; 
 
@@ -16,6 +17,8 @@ public class actionRandomiser : MonoBehaviour
 
     public GameObject aggressionSlider; 
     public GameObject cautionSlider;
+
+    public TextMeshProUGUI playerTextBox;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +41,17 @@ public class actionRandomiser : MonoBehaviour
             if (basicAttackChance >= 10 )
             {
                 print("Basic Attack");
-                partyMember.GetComponent<PlayerController>().PerformBasicAttack(); 
+                partyMember.GetComponent<PlayerController>().PerformBasicAttack();
+                playerTextBox.text = ("Basic Attack");
+
             } else if (healChance >= 10) {
                 print("Heal");
-                partyMember.GetComponent<PlayerController>().PerformHeal(); 
+                partyMember.GetComponent<PlayerController>().PerformHeal();
+                playerTextBox.text = ("Heal");
+
             } else {
-                print("nothing I guess lmao"); 
+                print("nothing I guess lmao");
+                playerTextBox.text = ("nothing I guess lmao");
             }
         }
     }

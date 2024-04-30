@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class EnemyAi : MonoBehaviour
 
     public int currentHealth;
 
+    public TextMeshProUGUI enemyTextBox;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -21,7 +24,7 @@ public class EnemyAi : MonoBehaviour
     void Update()
     {
 
-        // Check if health is below the threshold for healing
+      Check if health is below the threshold for healing
         if (currentHealth <= halfHealthThreshold)
         {
             PerformHeal();
@@ -36,21 +39,25 @@ public class EnemyAi : MonoBehaviour
         // Ensure health doesn't go below zero
         currentHealth = Mathf.Max(currentHealth, 0);
 
-        Debug.Log("Enemy took " + damage + " damage. Current health: " + currentHealth);
+        //Debug.Log("Enemy took " + damage + " damage. Current health: " + currentHealth);
         UpdateHealthSlider();
+
+        enemyTextBox.text = ("Enemy took " + damage + " damage. Current health: " + currentHealth);
     }
 
     void PerformHeal()
     {
-        // Simulate healing (for example, when triggered by certain conditions)
-        // Replace this with your actual healing logic
+         Simulate healing (for example, when triggered by certain conditions)
+         Replace this with your actual healing logic
         currentHealth += healingAmount;
 
-        // Ensure health doesn't exceed the maximum health
+         Ensure health doesn't exceed the maximum health
         currentHealth = Mathf.Min(currentHealth, maxHealth);
 
         Debug.Log("Enemy performed healing! Current health: " + currentHealth);
         UpdateHealthSlider();
+
+        enemyTextBox.text = ("Enemy performed healing! Current health: " + currentHealth);
     }
 
     void UpdateHealthSlider()
